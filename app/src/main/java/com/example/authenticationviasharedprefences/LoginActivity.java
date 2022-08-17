@@ -1,5 +1,6 @@
 package com.example.authenticationviasharedprefences;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -86,8 +89,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         else {
-            Toast.makeText(this, "Invalid User", Toast.LENGTH_SHORT).show();
-        }
+            Snackbar snackbar = Snackbar.
+                    make(findViewById(android.R.id.content),
+                            "Invalid User!",
+                            Snackbar.LENGTH_LONG);
+            snackbar.show();
+           }
 
 
 

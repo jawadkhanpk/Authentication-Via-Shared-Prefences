@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     EditText etForgotPasswordMobilNo, etForgotPasswordEmail;
@@ -51,7 +53,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             Intent i = new Intent(ForgotPasswordActivity.this,ResetPasswordActivity.class);
             startActivity(i);
         }else {
-            Toast.makeText(this, "Invalid Mobile Number or Email", Toast.LENGTH_SHORT).show();
+            Snackbar snackbar = Snackbar.
+                    make(findViewById(android.R.id.content),
+                            "Invalid Mobile Number or Email!",
+                            Snackbar.LENGTH_LONG);
+            snackbar.show();
         }
 
         }
