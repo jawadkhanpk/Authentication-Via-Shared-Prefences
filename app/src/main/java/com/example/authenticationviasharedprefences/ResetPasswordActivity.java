@@ -53,10 +53,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
             ref.edit().putString("SPconfirmPassword",confirmPasswordRPA).apply();
 
             Toast.makeText(this, "Password Changed Successfully!", Toast.LENGTH_LONG).show();
-
-
-
-            Intent i = new Intent(ResetPasswordActivity.this, Log.class);
+            
+            Intent i = new Intent(ResetPasswordActivity.this, LoginActivity.class);
             startActivity(i);
         }else {
             Toast.makeText(this, "Error! The New Password & Confirm New Password are not same!", Toast.LENGTH_SHORT).show();

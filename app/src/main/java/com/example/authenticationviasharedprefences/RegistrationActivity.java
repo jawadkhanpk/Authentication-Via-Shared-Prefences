@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     EditText etNameRA, etMobileNoRA, etEmailRA,etPasswordRA, etConfirmPasswordRA;
@@ -53,6 +55,27 @@ public class RegistrationActivity extends AppCompatActivity {
         String passwordRA = etPasswordRA.getText().toString().trim();
         String confirmPasswordRA = etConfirmPasswordRA.getText().toString().trim();
 
+        if (nameRA.equals("")){
+            Snackbar snackbar = Snackbar.
+                    make(findViewById(android.R.id.content), "Name is Required!",Snackbar.LENGTH_LONG);
+                    snackbar.show();
+        }else if(mobileNumberRA.equals("")){
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Mobile no is Required!",Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }else if(emailRA.equals("")){
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Email is Required!",Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }else if(passwordRA.equals("")){
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Password is Required!",Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }else if (confirmPasswordRA.equals("")){
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Confirm Password is Required!",Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }else if (!passwordRA.equals(confirmPasswordRA)){
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Password and Confirm Password dosen't matched!",Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+        else{
 
         ref.edit().putString("SPname",nameRA).apply();
         ref.edit().putString("SPmobileNO",mobileNumberRA).apply();
@@ -66,6 +89,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
         startActivity(i);
 
+    }
     }
 
 
