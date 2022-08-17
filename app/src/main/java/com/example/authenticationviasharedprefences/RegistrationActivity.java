@@ -31,6 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         btnRegister = findViewById(R.id.idBtnRegister);
 
+
         ref = getSharedPreferences("myapp",MODE_PRIVATE);
 
 
@@ -40,6 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 registerUser();
             }
         });
+
 
     }
 
@@ -58,11 +60,14 @@ public class RegistrationActivity extends AppCompatActivity {
         ref.edit().putString("SPpassword",passwordRA).apply();
         ref.edit().putString("SPconfirmPassword",confirmPasswordRA).apply();
 
-        ref.edit().putBoolean("isLogin",true).apply();
+//        ref.edit().putBoolean("isLogin",false).apply();
 
 
-        Intent i = new Intent(RegistrationActivity.this, HomeActivity.class);
+        Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
         startActivity(i);
 
     }
+
+
+
 }
