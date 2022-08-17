@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -14,6 +15,9 @@ public class HomeActivity extends AppCompatActivity {
     SharedPreferences ref;
 
     Button btnLogout;
+
+    ImageView ivUserProfile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
 
         name = findViewById(R.id.tvNameHA);
         ref = getSharedPreferences("myapp",MODE_PRIVATE);
-        name.setText(ref.getString("SPname",""));
+        name.setText("Welcome "+ref.getString("SPname",""));
 
 
         btnLogout = findViewById(R.id.idBtnLogout);
@@ -35,7 +39,18 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        ivUserProfile = findViewById(R.id.idIvUserProfile);
+        ivUserProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HomeActivity.this, UserProfileActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
+
+
     private void logoutUser() {
         ref.edit().putBoolean("isLogin",false);
     }

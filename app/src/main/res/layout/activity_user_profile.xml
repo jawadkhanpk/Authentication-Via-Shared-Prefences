@@ -6,4 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".UserProfileActivity">
 
+    <TextView
+        android:id="@+id/idNameUserProfileActivity"
+        android:layout_width="277dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="148dp"
+        android:gravity="center"
+        android:text="Name"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idEmailUserProfileActivity"
+        android:layout_width="277dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idNameUserProfileActivity" />
+
+    <Button
+        android:id="@+id/idBtnDeleteAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="Click to Delete Account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idEmailUserProfileActivity" />
 </androidx.constraintlayout.widget.ConstraintLayout>
